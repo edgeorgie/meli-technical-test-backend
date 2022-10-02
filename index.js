@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 
 const routes = require('./routes/index.routes')
+const getDetail = require('./services/services')
 
 const app = express()
 
