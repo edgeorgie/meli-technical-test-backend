@@ -25,8 +25,8 @@ const reqProduct = async (id) => {
       sold_quantity: product?.sold_quantity,
       description: description?.plain_text
     }
-  } catch ({message}) {
-    console.error(message)
+  } catch (err) {
+    console.error(err)
   }
 }
 
@@ -42,7 +42,9 @@ const reqDescription = async (id) => {
   return response;
 };
 
-module.exports = reqProducts
-module.exports = reqProduct
-module.exports = reqDetail
-module.exports = reqDescription
+module.exports = {
+  reqProducts,
+  reqProduct,
+  reqDetail,
+  reqDescription,
+}
