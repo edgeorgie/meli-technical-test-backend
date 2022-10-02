@@ -1,0 +1,31 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Servidor para la prueba tecnica de frontend en MELI",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edgeorgie/meli-technical-test-backend.git"
+  },
+  "keywords": [
+    "meli"
+  ],
+  "author": "Edwin Jorge <ed.jorge1122@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edgeorgie/meli-technical-test-backend/issues"
+  },
+  "homepage": "https://github.com/edgeorgie/meli-technical-test-backend#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
