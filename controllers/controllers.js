@@ -7,7 +7,7 @@ const getProducts = async (req, res) => {
     const { results, filters } = await reqProducts(q)
 
     res.json({
-      author,
+      author_signature,
       categories: getCategories(filters),
       items: constraintItems(results)
     })

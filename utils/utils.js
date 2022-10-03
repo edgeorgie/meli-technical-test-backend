@@ -8,30 +8,26 @@ const showItem = ({
   title,
   condition,
   shipping,
-  thumbnail: picture,
-  currency_id: currency
+  thumbnail,
+  price,
+  currency_id
 }) => ({
   id,
   title,
-  price: {
-    currency,
-    amount,
-    decimals
-  },
-  picture,
+  price: { price, currency_id },
+  thumbnail,
   condition,
   free_shipping: shipping?.free_shipping
-})
+});
 
 const constraintItems = (items = []) => {
   return items?.slice(0, 4)?.map(showItem)
 }
 
 const getCategories = (filters = []) => {
-  const categories = filters?.find(({ id }) => id === "category")?.values[0]?.path_from_root
-  const mapped_categories = categories.map(({ name }) => name)
+  const categories = filters?.find(({ id }) => id === 'category')?.values[0]?.path_from_root
 
-  if (categories) return mapped_categories
+  if (categories) return categories.map(({ name }) => name)
   return []
 }
 

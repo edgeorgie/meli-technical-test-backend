@@ -1,9 +1,21 @@
-const axios = require('axios').default
-
-const MELI_API = 'https://api.mercadolibre.com'
+const { AxiosInstance, MELI_API } = require('../utils/AxiosInstance')
 
 const reqProducts = async (query) => {
-  const response = await axios.get(`${MELI_API}/sites/MLA/search?q=${query}`).then(res => res.data)
+  const response = await AxiosInstance.get(
+    `${MELI_API}/sites/MLA/search?q=${query}`, query)
+  return response
+}
+
+const reqDetail = async (id) => {
+  const response = await AxiosInstance.get(`${MELI_API}/items/${id}`, id)
+    
+  return response
+}
+
+const reqDescription = async (id) => {
+  const response = await AxiosInstance.get(
+    `${MELI_API}/items/${id}/description`, id)
+    
   return response
 }
 
@@ -29,18 +41,6 @@ const reqProduct = async (id) => {
     console.error(err)
   }
 }
-
-const reqDetail = async (id) => {
-  const response = await axios.get(`${MELI_API}/items/${id}`).then(res => res.data)
-  return response
-}
-
-const reqDescription = async (id) => {
-  const response = await axios
-    .get(`${MELI_API}/items/${id}/description`)
-    .then((res) => res.data);
-  return response;
-};
 
 module.exports = {
   reqProducts,
