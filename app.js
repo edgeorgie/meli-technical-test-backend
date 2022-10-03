@@ -6,6 +6,9 @@ const routes = require('./routes/index.routes')
 const app = express()
 
 app.use(cors())
+app.use('/', (req, res) => {
+  res.sendStatus(200)
+})
 app.use('/api/items', routes)
 
 module.exports = app
