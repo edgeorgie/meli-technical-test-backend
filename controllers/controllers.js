@@ -1,5 +1,5 @@
 const { reqProduct, reqProducts } = require('../services/services')
-const { author_signature, showItem, constraintItems, getCategories } = require('../utils/utils')
+const { author, showItem, constraintItems, getCategories } = require('../utils/utils')
 
 const getProducts = async (req, res) => {
   try {
@@ -7,7 +7,7 @@ const getProducts = async (req, res) => {
     const { results, filters } = await reqProducts(q)
 
     res.json({
-      author_signature,
+      author,
       categories: getCategories(filters),
       items: constraintItems(results)
     })
@@ -24,7 +24,7 @@ const getProductDetail = async (req, res) => {
     if (error) return res.json({error})
 
     res.json({
-      author_signature,
+      author,
       item: {
         ...showItem(product),
         sold_quantity,

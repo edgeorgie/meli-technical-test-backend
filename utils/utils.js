@@ -1,6 +1,6 @@
-const author_signature = {
+const author = {
   name: 'Edwin',
-  last_name: 'Jorge'
+  lastname: 'Jorge'
 }
 
 const showItem = ({
@@ -8,17 +8,21 @@ const showItem = ({
   title,
   condition,
   shipping,
-  thumbnail,
+  thumbnail: picture,
   price,
-  currency_id
+  currency_id: currency
 }) => ({
   id,
   title,
-  price: { price, currency_id },
-  thumbnail,
+  price: {
+    currency,
+    amount: Math.trunc(price),
+    decimals: Number(num?.toString().split('.')[1])
+  },
+  picture,
   condition,
   free_shipping: shipping?.free_shipping
-});
+})
 
 const constraintItems = (items = []) => {
   return items?.slice(0, 4)?.map(showItem)
@@ -32,7 +36,7 @@ const getCategories = (filters = []) => {
 }
 
 module.exports = {
-  author_signature,
+  author,
   showItem,
   constraintItems,
   getCategories
