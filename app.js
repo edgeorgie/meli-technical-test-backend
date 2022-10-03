@@ -6,8 +6,8 @@ const routes = require('./routes/index.routes')
 const app = express()
 
 app.use(cors())
-app.use('/', (req, res) => {
-  res.sendStatus(200)
+app.use((req, res) => {
+  res.send('Backend desplegado para producción: PRUEBA TÉCNICA (FRONT-END DEVELOPER) DE EDWIN JORGE PARA MELI.')
 })
 app.use('/api/items', routes)
 
