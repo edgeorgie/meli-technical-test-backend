@@ -17,7 +17,7 @@ const showItem = ({
   price: {
     currency,
     amount: Math.trunc(price),
-    decimals: Number(num?.toString().split('.')[1])
+    decimals: Number(price?.toString().split('.')[1])
   },
   picture,
   condition,
