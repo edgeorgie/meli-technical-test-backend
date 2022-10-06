@@ -11,8 +11,8 @@ REPOS:
 Quiero aclarar que lo único en español serán los comentarios y documentación básica como este README, el resto (variables, funciones, etc...) quize manejarlo en inglés teniendo en cuenta la escalabilidad.
 
 ### Acerca del Front-end...
-1. Decidí tomarme la libertad de crear una búsqueda con sugerencias apesar de que perjudica un poco la UX por el detalle de que no se oculta al hacer un click afuera de ese recuedro.
-2. Creé la estructura para que fuese sencillo implementar server-side rendering sin embargo, no pude sacarle el máximo provecho debido a las limitantes de tiempo que tuve, sin embargo, considero que la forma adecuada (técnicamente hablando) es utilizar `getStaticProps` en lugar de `getServerSideProps`, la razón es que para esta prueba solo se deben mostrar 4 elementos y a su vez, en el backend se evita que se tengan que reenderizar o pasar por props al cliente (ssr) más de 4, otra razón fundamental es el hecho de que la API no va a necesitar constantes actualizaciones por lo que el SSR solo se haría cada vez que se hace Build, permitiendo que sea más económico si lo desean medir con E2C.
+1. Decidí tomarme la libertad de crear una búsqueda con sugerencias apesar de que perjudica un poco la UX por el detalle de que no se oculta al hacer un click afuera de ese recuadro.
+2. Creé la estructura para que fuese sencillo implementar server-side rendering sin embargo, no pude sacarle el máximo provecho debido a las limitantes de tiempo que tuve, sin embargo, considero que la forma adecuada (técnicamente hablando) es utilizar `getStaticProps` en lugar de `getServerSideProps`, la razón es que para esta prueba solo se deben mostrar 4 elementos y a su vez, en el backend se evita que se tengan que reenderizar o pasar por props al cliente (ssr) más de 4, otra razón fundamental es el hecho de que la API no va a necesitar constantes actualizaciones por lo que el SSR solo se haría cada vez que se hace Build y hasta se puede aplicar `ISG` para manejar las actualizaciones y evitar el "re-build", permitiendo a su vez que sea más económico si lo desean medir con E2C.
 
 ### Acerca del Back-end...
 1. Opté por usar Axios y crear una instancia como tal para permitirme así tener un mejor dominio y manipulación de las llamadas a la API y sus respuestas (teniendo en cuenta la escalabilidad, esto hacía más sencillo el hecho de que se podían crear objetos para estructurar todos los distintos llamados a la API para poder invocarlos y pasar por parametros las urls y los params con una simple razón: mejor legibilidad y disminuye lo extenso del código que podría generar no hacerlo con instancias de Axios), y eso me facilitó a su vez evitar las conversiones a JSON.
@@ -27,8 +27,8 @@ npm run dev
 Luego, podrás ingresar a [http://localhost:3000](http://localhost:3000) para ver los resultados del front-end.
 
 Si deseas ingresar a las rutas de la API puedes hacerlo con: 
-- [http://localhost:3001/api/items](http://localhost:3001/api/items).
-- [http://localhost:3001/api/items/:id](http://localhost:3001/api/items/:id).
+- [http://localhost:3002/api/items](http://localhost:3002/api/items).
+- [http://localhost:3002/api/items/:id](http://localhost:3002/api/items/:id).
 
 ## Roadmap 🏁
 
